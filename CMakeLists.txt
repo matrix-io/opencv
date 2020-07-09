@@ -661,8 +661,8 @@ include(cmake/OpenCVModule.cmake)
 #  Detect endianness of build platform
 # ----------------------------------------------------------------------------
 
-if(IOS)
-  # test_big_endian needs try_compile, which doesn't work for iOS
+if(IOS OR NACL)
+  # test_big_endian needs try_compile, which doesn't work for iOS or PNaCl
   # http://public.kitware.com/Bug/view.php?id=12288
   set(WORDS_BIGENDIAN 0)
 else()
